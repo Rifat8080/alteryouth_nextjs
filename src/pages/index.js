@@ -1,114 +1,142 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import { useState, useEffect } from "react";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  // Add scroll listener to toggle the navbar background
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
 
-export default function Home() {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Sidebar toggle handler
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
+
+  return (
+    <>
+      {/* Navbar */}
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all ${
+          isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        } border-b border-gray-200 dark:border-gray-700`}
+      >
+        <div className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
+          {/* Left Section: Sidebar Button and Logo */}
+          <div className="flex items-center space-x-4 rtl:space-x-reverse">
+            {/* Sidebar Button */}
+            <button
+              onClick={toggleSidebar}
+              className="p-2 text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-label="Toggle Sidebar"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+
+            {/* Logo */}
+            <a
+              href="https://flowbite.com/"
+              className="flex items-center space-x-2 rtl:space-x-reverse"
+            >
+              <img
+                src="https://flowbite.com/docs/images/logo.svg"
+                alt="Flowbite Logo"
+                className="h-8"
+              />
+              <span className="text-2xl font-semibold whitespace-nowrap dark:text-white">
+                Flowbite
+              </span>
+            </a>
+          </div>
+
+          {/* Right Section: Navigation Links (Hidden on Mobile) */}
+          <div className="hidden md:flex space-x-8 rtl:space-x-reverse">
+            <NavLink href="#" label="Home" isActive />
+            <NavLink href="#" label="About" />
+            <NavLink href="#" label="Services" />
+            <NavLink href="#" label="Pricing" />
+            <NavLink href="#" label="Contact" />
+          </div>
+        </div>
+      </nav>
+
+      {/* Sidebar */}
+      <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
+    </>
+  );
+};
+
+export default Navbar;
+
+const NavLink = ({ href, label, isActive }) => (
+  <a
+    href={href}
+    className={`block py-2 px-3 rounded ${
+      isActive
+        ? "text-white bg-blue-700 md:bg-transparent md:text-blue-700 dark:text-blue-500"
+        : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+    }`}
+  >
+    {label}
+  </a>
+);
+
+const Sidebar = ({ isOpen, onClose }) => {
   return (
     <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
+      className={`fixed top-0 left-0 h-full bg-gray-800 text-white shadow-lg transition-transform transform ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      } w-64 z-40 md:relative md:translate-x-0`}
     >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <div className="flex justify-between items-center p-4">
+        <h2 className="text-lg font-semibold">Menu</h2>
+        <button
+          onClick={onClose}
+          className="text-gray-300 hover:text-white focus:outline-none md:hidden"
+          aria-label="Close Sidebar"
+        >
+          <svg
+            className="w-6 h-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          </svg>
+        </button>
+      </div>
+      <nav className="space-y-2 p-4">
+        <NavLink href="#" label="Home" />
+        <NavLink href="#" label="About" />
+        <NavLink href="#" label="Services" />
+        <NavLink href="#" label="Pricing" />
+        <NavLink href="#" label="Contact" />
+      </nav>
     </div>
   );
-}
+};
