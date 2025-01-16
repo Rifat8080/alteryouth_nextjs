@@ -8,9 +8,15 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Gilroy', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      backgroundImage: {
+        'hero-pattern': "url('/images/1.jpg')",
       },
     },
   },
