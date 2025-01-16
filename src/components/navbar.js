@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,7 +42,7 @@ const Navbar = () => {
             {/* Sidebar Button */}
             <button
               onClick={toggleSidebar}
-              className="p-2 text-gray-700 hover:text-gray-900"
+              className="p-2 text-white "
               aria-label="Toggle Sidebar"
             >
               <FontAwesomeIcon icon={faBars} className="w-6 h-6" />
@@ -119,23 +119,11 @@ const Sidebar = ({ isOpen, onClose }) => {
       <div className="flex justify-between items-center p-4">
         <button
           onClick={onClose}
-          className="text-gray-700 hover:text-gray-900 focus:outline-none"
+          className="text-green-700 hover:text-gray-900 focus:outline-none"
           aria-label="Close Sidebar"
         >
-          <svg
-            className="w-6 h-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+        <FontAwesomeIcon icon={faTimes} className="w-6 h-6 md:hidden" />
+
         </button>
       </div>
       <nav className="space-y-2 p-4">
