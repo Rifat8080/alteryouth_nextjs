@@ -66,11 +66,11 @@ const Navbar = () => {
 
           {/* Right Section: Navigation Links (Hidden on Mobile) */}
           <div className="hidden md:flex space-x-8">
-            <NavLink href="#" label="About" isActive />
-            <NavLink href="#" label="How it works" />
-            <NavLink href="#" label="Scholarships" />
-            <NavLink href="#" label="Collaborate" />
-            <NavLink href="#" label="Login" />
+            <NavLink href="#" label="About" context="navbar" isActive />
+            <NavLink href="#" label="How it works" context="navbar" />
+            <NavLink href="#" label="Scholarships" context="navbar" />
+            <NavLink href="#" label="Collaborate" context="navbar" />
+            <NavLink href="#" label="Login" context="navbar" />
           </div>
         </div>
       </nav>
@@ -89,18 +89,25 @@ const Navbar = () => {
   );
 };
 
-const NavLink = ({ href, label, isActive }) => (
-  <a
-    href={href}
-    className={`block py-2 px-3 rounded ${
-      isActive
-        ? "text-blue-700 bg-gray-100 md:bg-transparent font-bold"
-        : "text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 font-bold"
-    }`}
-  >
-    {label}
-  </a>
-);
+const NavLink = ({ href, label, context, isActive }) => {
+  const navbarStyle = `block py-2 px-3 rounded ${
+    isActive
+      ? "text-white font-bold"
+      : "text-white font-bold"
+  }`;
+
+  const sidebarStyle = `block py-2 px-3 rounded text-lg font-medium ${
+    isActive
+      ? "text-white bg-blue-700"
+      : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+  }`;
+
+  return (
+    <a href={href} className={context === "navbar" ? navbarStyle : sidebarStyle}>
+      {label}
+    </a>
+  );
+};
 
 const Sidebar = ({ isOpen, onClose }) => {
   return (
@@ -132,11 +139,11 @@ const Sidebar = ({ isOpen, onClose }) => {
         </button>
       </div>
       <nav className="space-y-2 p-4">
-        <NavLink href="#" label="Home" />
-        <NavLink href="#" label="About" />
-        <NavLink href="#" label="Services" />
-        <NavLink href="#" label="Pricing" />
-        <NavLink href="#" label="Contact" />
+        <NavLink href="#" label="Home" context="sidebar" />
+        <NavLink href="#" label="About" context="sidebar" />
+        <NavLink href="#" label="Services" context="sidebar" />
+        <NavLink href="#" label="Pricing" context="sidebar" />
+        <NavLink href="#" label="Contact" context="sidebar" />
       </nav>
     </div>
   );
