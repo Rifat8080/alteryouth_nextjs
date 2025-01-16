@@ -27,12 +27,13 @@ const Navbar = () => {
             isScrolled ? "bg-white shadow-md" : "bg-transparent"
           } `}
         >
-          <div className="w-full max-w-6xl flex flex-row items-center justify-between mx-auto py-4">            {/* Left Section: Sidebar Button and Logo */}
+          <div className="w-full max-w-6xl flex flex-row items-center justify-between mx-auto py-4">            
+            {/* Left Section: Sidebar Button and Logo */}
             <div className="flex items-center space-x-4 rtl:space-x-reverse">
               {/* Sidebar Button */}
               <button
                 onClick={toggleSidebar}
-                className="p-2 text-white rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                className="p-2 text-white"
                 aria-label="Toggle Sidebar"
               >
                 <svg
