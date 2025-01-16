@@ -128,10 +128,13 @@ const Sidebar = ({ isOpen, onClose }) => {
       </div>
       <nav className="space-y-2 p-4">
         <NavLink href="#" label="Home" context="sidebar" />
+        <NavLink href="#" label="How it works" context="sidebar" />
         <NavLink href="#" label="About" context="sidebar" />
-        <NavLink href="#" label="Services" context="sidebar" />
-        <NavLink href="#" label="Pricing" context="sidebar" />
-        <NavLink href="#" label="Contact" context="sidebar" />
+        <NavLink href="#" label="Collaborate" context="sidebar" />
+        <NavLink href="#" label="Scholarship Policy" context="sidebar" />
+        <NavLink href="#" label="Get in touch" context="sidebar" />
+        <NavLink href="#" label="Get the app" context="sidebar" />
+        <NavLink href="#" label="Login" context="sidebar" />
       </nav>
     </div>
   );
