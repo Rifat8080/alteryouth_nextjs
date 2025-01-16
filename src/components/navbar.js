@@ -58,14 +58,14 @@ const Navbar = () => {
                 alt="Flowbite Logo"
                 className="h-8"
               />
-              <span className="text-2xl font-semibold dark:text-white">
+              <span className="text-2xl font-semibold text-white">
                 Flowbite
               </span>
             </a>
           </div>
 
           {/* Right Section: Navigation Links (Hidden on Mobile) */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 text-white">
             <NavLink href="#" label="About" context="navbar" isActive />
             <NavLink href="#" label="How it works" context="navbar" />
             <NavLink href="#" label="Scholarships" context="navbar" />

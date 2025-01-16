@@ -5,6 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --lightGreen: #37C467;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -66,4 +67,5 @@
 body {
   color: var(--foreground);
   background: var(--background);
+  font-family: 'Gilroy', sans-serif;
 }

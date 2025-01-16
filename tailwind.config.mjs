@@ -15,7 +15,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         lightGreen: "#37C467",
-      },
+        darkGreen: "#2D7A4B",},
       backgroundImage: {
         'hero-pattern': "url('/images/1.jpg')",
       },
