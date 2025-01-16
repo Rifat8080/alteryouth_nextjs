@@ -27,8 +27,7 @@ const Navbar = () => {
             isScrolled ? "bg-white shadow-md" : "bg-transparent"
           } `}
         >
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            {/* Left Section: Sidebar Button and Logo */}
+          <div className="w-full max-w-6xl flex flex-row items-center justify-between mx-auto py-4">            {/* Left Section: Sidebar Button and Logo */}
             <div className="flex items-center space-x-4 rtl:space-x-reverse">
               {/* Sidebar Button */}
               <button
