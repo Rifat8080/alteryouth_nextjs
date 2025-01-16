@@ -24,9 +24,9 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="bg-hero-pattern relative w-full h-screen bg-cover bg-center">
+    <section className=" relative w-full h-screen bg-cover bg-center">
       <ToastContainer />
-      <div className="absolute inset-0 bg-black opacity-50">
+      <div className="absolute inset-0 bg-black opacity-65">
         <img src="assets/images/hero_pc.jpg" alt="Hero" className="w-full h-full object-cover" />
       </div>
       <div className="relative z-10 flex items-center justify-center h-full text-white px-8">
@@ -39,7 +39,7 @@ const HeroSection = () => {
             <form className="flex flex-col flex-start space-y-4">
               <h2 className="text-xl font-semibold text-left"
               style={{ color: "#21252A" }}
-              >Join the <span style={{ color: "#37C467" }}>#alteryouthrevolution</span> </h2>
+              >Join the <span className='text-lightGreen'>#alteryouthrevolution</span> </h2>
               <input
                 type="text"
                 placeholder="Your Name"

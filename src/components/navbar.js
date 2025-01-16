@@ -65,7 +65,7 @@ const Navbar = () => {
           </div>
 
           {/* Right Section: Navigation Links (Hidden on Mobile) */}
-          <div className="hidden md:flex space-x-8 text-white">
+          <div className="hidden md:flex space-x-1 text-white">
             <NavLink href="#" label="About" context="navbar" isActive />
             <NavLink href="#" label="How it works" context="navbar" />
             <NavLink href="#" label="Scholarships" context="navbar" />

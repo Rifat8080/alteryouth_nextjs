@@ -12,8 +12,6 @@ export default {
         sans: ['Gilroy', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
         lightGreen: "#37C467",
         darkGreen: "#2D7A4B",},
       backgroundImage: {
@@ -21,9 +19,6 @@ export default {
       },
     },
   },
-  content: [
-    flowbite.content(),
-  ],
   plugins: [
     flowbite.plugin(),
   ],
