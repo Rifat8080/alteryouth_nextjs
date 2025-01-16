@@ -23,11 +23,11 @@ const Navbar = () => {
       <>
         {/* Navbar */}
         <nav
-          className={`fixed top-0 left-0 w-full z-50 transition-all ${
+          className={`fixed top-0 left-0 z-50 items-center w-full transition-all ${
             isScrolled ? "bg-white shadow-md" : "bg-transparent"
-          } border-b border-gray-200 dark:border-gray-700`}
+          } `}
         >
-          <div className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
+          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             {/* Left Section: Sidebar Button and Logo */}
             <div className="flex items-center space-x-4 rtl:space-x-reverse">
               {/* Sidebar Button */}
@@ -70,11 +70,11 @@ const Navbar = () => {
   
             {/* Right Section: Navigation Links (Hidden on Mobile) */}
             <div className="hidden md:flex space-x-8 rtl:space-x-reverse">
-              <NavLink href="#" label="Home" isActive />
-              <NavLink href="#" label="About" />
-              <NavLink href="#" label="Services" />
-              <NavLink href="#" label="Pricing" />
-              <NavLink href="#" label="Contact" />
+              <NavLink href="#" label="About" isActive />
+              <NavLink href="#" label="How it works" />
+              <NavLink href="#" label="Scholarships" />
+              <NavLink href="#" label="Collaborate" />
+              <NavLink href="#" label="Login" />
             </div>
           </div>
         </nav>
@@ -90,8 +90,8 @@ const Navbar = () => {
       href={href}
       className={`block py-2 px-3 rounded ${
         isActive
-          ? "text-white bg-blue-700 md:bg-transparent md:text-blue-700 dark:text-blue-500"
-          : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+          ? "text-white bg-blue-700 md:bg-transparent md:text-blue-700 font-bold"
+          : "text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 font-bold"
       }`}
     >
       {label}
