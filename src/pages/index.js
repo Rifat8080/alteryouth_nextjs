@@ -8,7 +8,6 @@ const HomePage = () => {
     <>
       <Navbar />
       <HeroSection />
-      {/* Other sections of your homepage */}
     </>
   );
 };
