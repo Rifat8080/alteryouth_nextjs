@@ -79,7 +79,7 @@ const Navbar = () => {
       {isSidebarOpen && (
         <div
           id="overlay"
-          className="fixed inset-0 bg-black bg-opacity-50 z-50"
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 "
           onClick={handleOverlayClick}
         >
           <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
@@ -90,13 +90,13 @@ const Navbar = () => {
 };
 
 const NavLink = ({ href, label, context, isActive }) => {
-  const navbarStyle = `block py-2 px-3 rounded ${
+  const navbarStyle = `block py-2 px-3 rounded  text-base${
     isActive
       ? "text-white font-bold"
       : "text-white font-bold"
   }`;
 
-  const sidebarStyle = `block py-2 px-3 rounded text-lg font-medium ${
+  const sidebarStyle = `block py-2 px-3 mt-5 rounded text-lg font-medium text-base  ${
     isActive
       ? "text-white bg-blue-700"
       : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
