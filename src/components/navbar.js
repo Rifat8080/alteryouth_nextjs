@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -24,7 +27,7 @@ const Navbar = () => {
         {/* Navbar */}
         <nav
           className={`fixed top-0 left-0 z-50 items-center w-full transition-all ${
-            isScrolled ? "bg-white shadow-md" : "bg-transparent"
+            isScrolled ? "bg-white shadow-md" : "md:bg-transparent bg-white"
           } `}
         >
           <div className="w-full max-w-6xl flex flex-row items-center justify-between mx-auto py-4">            
@@ -33,23 +36,10 @@ const Navbar = () => {
               {/* Sidebar Button */}
               <button
                 onClick={toggleSidebar}
-                className="p-2 text-white"
+                className="p-2text-white"
                 aria-label="Toggle Sidebar"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                 <FontAwesomeIcon icon={faBars} className="w-6 h-6" />
               </button>
   
               {/* Logo */}
@@ -109,7 +99,7 @@ const Navbar = () => {
           <h2 className="text-lg font-semibold">Menu</h2>
           <button
             onClick={onClose}
-            className="text-gray-300 hover:text-white focus:outline-none md:hidden"
+            className="text-green-400 hover:text-white focus:outline-none md:hidden"
             aria-label="Close Sidebar"
           >
             <svg
