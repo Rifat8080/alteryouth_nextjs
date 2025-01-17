@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import schoolsData from '../../public/assets/data/schools.json';
+import { useEffect, useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import schoolsData from "../../public/assets/data/schools.json";
 
 const SchoolCarousel = ({ images }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -16,19 +17,12 @@ const SchoolCarousel = ({ images }) => {
     window.addEventListener("resize", handleResize);
 
     let interval;
-    const carouselItems = document.querySelectorAll("[data-carousel-item]");
-
-    // Function to show the next slide
-    const showNextSlide = () => {
-      carouselItems[currentIndex].classList.add("hidden");
-      const nextIndex = (currentIndex + 1) % carouselItems.length;
-      carouselItems[nextIndex].classList.remove("hidden");
-      setCurrentIndex(nextIndex);
-    };
 
     // Auto-slide for mobile devices
     if (isMobile) {
-      interval = setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+      interval = setInterval(() => {
+        handleNext();
+      }, 3000); // Change slide every 3 seconds
     }
 
     // Cleanup on unmount
@@ -45,39 +39,54 @@ const SchoolCarousel = ({ images }) => {
     groupedImages.push(images.slice(i, i + groupSize));
   }
 
-  // Calculate the current set of indicators
-  const indicatorSetSize = 4;
-  const currentIndicatorSet = Math.floor(currentIndex / indicatorSetSize);
-  const indicators = Array.from({ length: indicatorSetSize }, (_, i) => currentIndicatorSet * indicatorSetSize + i);
+  const handleNext = () => {
+    const carouselItems = carouselRef.current.querySelectorAll("[data-carousel-item]");
+    carouselItems[currentIndex].classList.add("hidden");
+    const nextIndex = (currentIndex + 1) % carouselItems.length;
+    carouselItems[nextIndex].classList.remove("hidden");
+    setCurrentIndex(nextIndex);
+  };
+
+  const handlePrev = () => {
+    const carouselItems = carouselRef.current.querySelectorAll("[data-carousel-item]");
+    carouselItems[currentIndex].classList.add("hidden");
+    const prevIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+    carouselItems[prevIndex].classList.remove("hidden");
+    setCurrentIndex(prevIndex);
+  };
 
   return (
-    <>
+    <div ref={carouselRef}>
+      {/* Header */}
       <div className="flex flex-col px-4 md:px-16 xl:px-80 bg-white py-7">
-        <h2 className="text-3xl md:text-4xl font-bold text-left text-black">Students from Government Primary Schools Nationwide</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-left text-black">
+          Students from Government Primary Schools Nationwide
+        </h2>
       </div>
-      <div id="animation-carousel" className="relative w-full bg-white p-4 md:p-0" data-carousel="static">
+
+      {/* Carousel */}
+      <div id="school-carousel" className="relative w-full bg-white p-4 md:p-0" data-carousel="school-carousel">
         {/* Carousel wrapper */}
         <div className="relative h-56 overflow-hidden rounded-lg md:h-full">
-          {/* Slider Items */}
           {groupedImages.map((group, index) => (
             <div
               key={index}
-              className={`duration-200 ease-linear ${index === 0 ? 'block' : 'hidden'}`}
+              className={`duration-200 ease-linear ${index === 0 ? "block" : "hidden"}`}
               data-carousel-item
             >
               <div className="flex justify-center">
                 {group.map((image, imgIndex) => (
-                  <div key={imgIndex} className={`${isMobile ? 'w-full' : 'w-1/3'} h-auto object-contain p-2`}>
+                  <div key={imgIndex} className={`${isMobile ? "w-full" : "w-1/3"} h-auto object-contain p-2`}>
                     <img
                       src={image}
                       alt={`Image ${imgIndex + 1}`}
                       className="w-full h-auto object-contain rounded-lg"
                     />
                     <div className="p-4">
-                      <h3 className="text-xl text-black font-semibold">{schoolsData[imgIndex].name}</h3>
+                      <h3 className="text-xl text-black font-semibold">{schoolsData[imgIndex]?.name}</h3>
                       <p className="text-black">
                         <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-lightGreen" />
-                        {schoolsData[imgIndex].location}
+                        {schoolsData[imgIndex]?.location}
                       </p>
                     </div>
                   </div>
@@ -86,6 +95,7 @@ const SchoolCarousel = ({ images }) => {
             </div>
           ))}
         </div>
+
         {/* Slider Controls */}
         {!isMobile && (
           <>
@@ -93,17 +103,7 @@ const SchoolCarousel = ({ images }) => {
               type="button"
               className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
               data-carousel-prev
-              onClick={() => {
-                const carouselItems = document.querySelectorAll("[data-carousel-item]");
-                const activeIndex = [...carouselItems].findIndex(
-                  (item) => !item.classList.contains("hidden")
-                );
-                carouselItems[activeIndex].classList.add("hidden");
-                const prevIndex =
-                  (activeIndex - 1 + carouselItems.length) % carouselItems.length;
-                carouselItems[prevIndex].classList.remove("hidden");
-                setCurrentIndex(prevIndex);
-              }}
+              onClick={handlePrev}
             >
               <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50">
                 <svg
@@ -128,16 +128,7 @@ const SchoolCarousel = ({ images }) => {
               type="button"
               className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
               data-carousel-next
-              onClick={() => {
-                const carouselItems = document.querySelectorAll("[data-carousel-item]");
-                const activeIndex = [...carouselItems].findIndex(
-                  (item) => !item.classList.contains("hidden")
-                );
-                carouselItems[activeIndex].classList.add("hidden");
-                const nextIndex = (activeIndex + 1) % carouselItems.length;
-                carouselItems[nextIndex].classList.remove("hidden");
-                setCurrentIndex(nextIndex);
-              }}
+              onClick={handleNext}
             >
               <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50">
                 <svg
@@ -160,25 +151,22 @@ const SchoolCarousel = ({ images }) => {
             </button>
           </>
         )}
+
         {/* Indicators for mobile */}
         {isMobile && (
           <div className="flex justify-center mt-4">
-            {indicators.map((index) => (
+            {groupedImages.map((_, index) => (
               <span
                 key={index}
-                className={`inline-block w-3 h-3 mx-1 rounded-full  ${
-                  index === currentIndex ? 'bg-lightGreen' : 'bg-gray-300'
+                className={`inline-block w-3 h-3 mx-1 rounded-full ${
+                  index === currentIndex ? "bg-lightGreen" : "bg-gray-300"
                 }`}
               ></span>
             ))}
           </div>
         )}
-      </div>
-      <p className="flex lg:hidden bg-white text-sm lg:text-base max-w-8xl p-4 text-left text-black font-medium ">
-        Every scholarship begins with shipping a mobile phone to the parent of the student. Then they create their own mobile bank account
-        using that phone, to start receiving their child's scholarships directly, every month.
-      </p>
-    </>
+      </div> 
+    </div>
   );
 };
 
