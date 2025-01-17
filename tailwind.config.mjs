@@ -15,9 +15,11 @@ export default {
         lightGreen: "#37C467",
         darkGreen: "#2D7A4B",
         sidebarColor: "#DCFCE6",
+        uberColor: "#FCFCFC",
       },
       backgroundImage: {
         'hero-pattern': "url('/images/1.jpg')",
+
       },
     },
   },

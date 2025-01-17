@@ -1,9 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const HeroSection = () => {
   const [count, setCount] = useState(0);
+  const [countryCodes, setCountryCodes] = useState([]);
+
+
+  useEffect(() => {
+    fetch('/assets/data/code.json')
+      .then(response => response.json())
+      .then(data => setCountryCodes(data))
+      .catch(error => console.error('Error fetching country codes:', error));
+  }, []);
 
   const increment = () => {
     if (count < 3) {
@@ -24,12 +33,17 @@ const HeroSection = () => {
   };
 
   return (
-    <section className=" relative w-full h-screen bg-cover bg-center">
+    <section className=" w-full h-screen">
       <ToastContainer />
-      <div className="absolute inset-0 bg-black opacity-65">
-        <img src="assets/images/hero_pc.jpg" alt="Hero" className="w-full h-full object-cover" />
+      <div className="absolute inset-0 opacity-96">
+        <div className="block md:hidden">
+          <img src="assets/images/hero_home_phone.jpg" alt="Hero Mobile" className="w-full h-[90%] object-cover relative" />
+        </div>
+        <div className="hidden md:block">
+          <img src="assets/images/hero_pc.jpg" alt="Hero Desktop" className="w-full h-[90%] object-cover relative" />
+        </div>
       </div>
-      <div className="relative z-10 flex items-center justify-center h-full text-white px-8">
+      <div className="relative z-10 flex items-center justify-center h-full text-white px-8 pt-[100%] md:pt-0 ">
         <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col space-y-4 text-left max-w-sm ">
           <h1 className="text-4xl md:text-6xl font-bold">Start your scholarship</h1>
@@ -40,37 +54,33 @@ const HeroSection = () => {
               <h2 className="text-xl font-semibold text-left"
               style={{ color: "#21252A" }}
               >Join the <span className='text-lightGreen'>#alteryouthrevolution</span> </h2>
-              <input
+                <input
                 type="text"
                 placeholder="Your Name"
-                className="px-4 py-2 border rounded-lg w-full "
-                style={{ color: "black" }}
+                className="px-4 py-2 border rounded-lg w-full text-black placeholder:text-sm md:placeholder:text-base focus:border-lightGreen focus:ring-lightGreen"
               />
               <input
                 type="email"
                 placeholder="Your Email"
-                className="px-4 py-2 border rounded-lg w-full"
-                style={{ color: "black" }}
+                className="px-4 py-2 border rounded-lg w-full text-black placeholder:text-sm md:placeholder:text-base focus:border-lightGreen focus:ring-lightGreen"
               />
               <div className="flex w-full space-x-2">
-                <select className="px-4 py-2 border rounded-lg"
-                style={{ color: "black" }}>
-                  <option value="+1">+1</option>
-                  <option value="+44">+44</option>
-                  <option value="+91">+91</option>
-                  <option value="+880">+880</option>
-                  {/* Add more country codes as needed */}
+              <select className="px-4 py-2 border rounded-lg text-black focus:border-lightGreen focus:ring-lightGreen">
+                  {countryCodes.map((country, index) => (
+                    <option key={index} value={country.dial_code}>
+                      {country.flag} {country.dial_code} 
+                    </option>
+                  ))}
                 </select>
                 <input
                   type="tel"
                   placeholder="Your Phone Number"
-                  className="px-4 py-2 border rounded-lg w-full"
+                  className="px-4 py-2 border rounded-lg w-full text-black placeholder:text-sm md:placeholder:text-base focus:border-lightGreen focus:ring-lightGreen"
                   pattern="[0-9]*"
-                  style={{ color: "black" }}
                 />
               </div>
                 <span className="text-gray-700 font-medium">Number of Scholarships</span>
-              <div className="flex flex-row items-center justify-between">
+              <div className="flex flex-row items-center justify-between space-x-4">
                 <div className="flex items-center space-x-4">
                   <button
                     type="button"
@@ -91,9 +101,9 @@ const HeroSection = () => {
                   </button>
                   </div>
                   <div>
-                  <span className="text-2xl md:text-3xl text-black">
+                  <span className="text-sm md:text-3xl text-black font-bold">
                     BDT {getPrice()}
-                    <span className="text-sm md:text-base text-black">/month</span>
+                    <span className="text-sm md:text-base text-black font-medium">/month</span>
                   </span>
                   </div>          
               </div>
