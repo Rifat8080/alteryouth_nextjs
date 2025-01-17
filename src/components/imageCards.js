@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ImageCard = ({ imageSrc, altText, caption, linkText, linkHref, isHeadteacher, bottomCaption }) => (
-  <figure className="relative w-96 transition-all duration-300 cursor-pointer transform hover:scale-105">
+  <figure className="relative px-4 xl:px-0 lg:w-80 xl:w-96 transition-all duration-300 cursor-pointer transform hover:scale-105">
     <a href="#">
       <img className="rounded-lg h-96 w-full object-cover" src={imageSrc} alt={altText} />
     </a>
@@ -51,7 +51,7 @@ const ImageCards = () => {
 
   return (
     <div className="bg-white py-7 flex justify-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-12">
         {cardsData.map((card, index) => (
           <ImageCard
             key={index}
