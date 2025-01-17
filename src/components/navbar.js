@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes,faHome, faInfoCircle, faGraduationCap, faHandshake, faFileAlt, faEnvelope, faMobileAlt, faSignInAlt  } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,7 +43,7 @@ const Navbar = () => {
             {/* Sidebar Button */}
             <button
               onClick={toggleSidebar}
-              className="p-2 text-white "
+              className="p-2 text-lightGreen md:text-white "
               aria-label="Toggle Sidebar"
             >
               <FontAwesomeIcon icon={faBars} className="w-6 h-6" />
@@ -59,7 +59,7 @@ const Navbar = () => {
                 alt="Flowbite Logo"
                 className="h-8"
               />
-              <span className="text-2xl font-semibold dark:text-white">
+              <span className="text-2xl font-semibold text-lightGreen md:text-white">
                 Flowbite
               </span>
             </a>
@@ -90,7 +90,7 @@ const Navbar = () => {
   );
 };
 
-const NavLink = ({ href, label, context, isActive, onClick }) => {
+const NavLink = ({ href, label, context, isActive, onClick, icon }) => {
   const navbarStyle = `relative block py-2 px-3 rounded ${
     isActive
       ? "text-white font-bold text-base"
@@ -99,12 +99,13 @@ const NavLink = ({ href, label, context, isActive, onClick }) => {
 
   const sidebarStyle = `block py-2 px-3 mt-5 rounded font-medium text-base ${
     isActive
-      ? "text-white bg-lightGreen"
+      ? "text-lightGreen bg-lightGreen bg-opacity-25"
       : "text-gray-500 hover:text-lightGreen"
   }`;
 
   return (
     <a href={href} className={context === "navbar" ? navbarStyle : sidebarStyle} onClick={onClick}>
+       <FontAwesomeIcon icon={icon} className="mr-2" />
       {label}
       <span className="inline-block absolute left-0 bottom-0 w-full h-0.5 bg-lightGreen scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
     </a>
@@ -114,28 +115,28 @@ const NavLink = ({ href, label, context, isActive, onClick }) => {
 const Sidebar = ({ isOpen, onClose, activeLink, setActiveLink }) => {
   return (
     <div
-      className={`fixed top-0 left-0 h-full bg-white shadow-lg transition-transform transform ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      } w-64 max-w-xs z-50`}
-    >
+    className={`fixed top-0 left-0 h-full bg-white shadow-lg transition-transform transform ${
+      isOpen ? "translate-x-0" : "-translate-x-full"
+    } w-64 max-w-xs z-50 duration-300 ease-in-out`}
+  >
       <div className="flex justify-between items-center p-4">
         <button
           onClick={onClose}
-          className="text-lightGreen hover:text-gray-900 focus:outline-none"
+          className="p-2 text-lightGreen hover:text-gray-900 focus:outline-none"
           aria-label="Close Sidebar"
         >
           <FontAwesomeIcon icon={faTimes} className="w-6 h-6 md:hidden" />
         </button>
       </div>
       <nav className="space-y-2 p-4">
-        <NavLink href="#" label="Home" context="sidebar" isActive={activeLink === "Home"} onClick={() => setActiveLink("Home")} />
-        <NavLink href="#" label="How it works" context="sidebar" isActive={activeLink === "How it works"} onClick={() => setActiveLink("How it works")} />
-        <NavLink href="#" label="About" context="sidebar" isActive={activeLink === "About"} onClick={() => setActiveLink("About")} />
-        <NavLink href="#" label="Collaborate" context="sidebar" isActive={activeLink === "Collaborate"} onClick={() => setActiveLink("Collaborate")} />
-        <NavLink href="#" label="Scholarship Policy" context="sidebar" isActive={activeLink === "Scholarship Policy"} onClick={() => setActiveLink("Scholarship Policy")} />
-        <NavLink href="#" label="Get in touch" context="sidebar" isActive={activeLink === "Get in touch"} onClick={() => setActiveLink("Get in touch")} />
-        <NavLink href="#" label="Get the app" context="sidebar" isActive={activeLink === "Get the app"} onClick={() => setActiveLink("Get the app")} />
-        <NavLink href="#" label="Login" context="sidebar" isActive={activeLink === "Login"} onClick={() => setActiveLink("Login")} />
+        <NavLink href="#" label="Home" context="sidebar" isActive={activeLink === "Home"} onClick={() => setActiveLink("Home")} icon={faHome} />
+        <NavLink href="#" label="How it works" context="sidebar" isActive={activeLink === "How it works"} onClick={() => setActiveLink("How it works")} icon={faInfoCircle} />
+        <NavLink href="#" label="About" context="sidebar" isActive={activeLink === "About"} onClick={() => setActiveLink("About")} icon={faGraduationCap} />
+        <NavLink href="#" label="Collaborate" context="sidebar" isActive={activeLink === "Collaborate"} onClick={() => setActiveLink("Collaborate")} icon={faHandshake} />
+        <NavLink href="#" label="Scholarship Policy" context="sidebar" isActive={activeLink === "Scholarship Policy"} onClick={() => setActiveLink("Scholarship Policy")} icon={faFileAlt} />
+        <NavLink href="#" label="Get in touch" context="sidebar" isActive={activeLink === "Get in touch"} onClick={() => setActiveLink("Get in touch")} icon={faEnvelope} />
+        <NavLink href="#" label="Get the app" context="sidebar" isActive={activeLink === "Get the app"} onClick={() => setActiveLink("Get the app")} icon={faMobileAlt} />
+        <NavLink href="#" label="Login" context="sidebar" isActive={activeLink === "Login"} onClick={() => setActiveLink("Login")} icon={faSignInAlt} />
       </nav>
     </div>
   );
