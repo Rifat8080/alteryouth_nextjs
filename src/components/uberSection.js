@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome} from '@fortawesome/free-solid-svg-icons'; // Replace with actual icons
+import { faHome} from '@fortawesome/free-solid-svg-icons'; 
 
 const UberSection = () => {
   return (
