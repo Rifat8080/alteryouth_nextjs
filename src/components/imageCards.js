@@ -5,7 +5,7 @@ const ImageCard = ({ imageSrc, altText, caption }) => (
     <a href="#">
       <img className="rounded-lg" src={imageSrc} alt={altText} />
     </a>
-    <figcaption className="absolute px-4 text-lg text-white top-6">
+    <figcaption className="absolute px-4 text-xl font-bold max-w-60 text-white top-6">
       <p>{caption}</p>
     </figcaption>
   </figure>
@@ -14,19 +14,19 @@ const ImageCard = ({ imageSrc, altText, caption }) => (
 const ImageCards = () => {
   const cardsData = [
     {
-      imageSrc: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png",
+      imageSrc: "/assets/images/headteacher.jpg",
       altText: "image description 1",
-      caption: "Do you want to get notified when a new component is added to Flowbite?"
+      caption: "Are you a teacher? Get your students listed on the platform."
     },
     {
-      imageSrc: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png",
+      imageSrc: "/assets/images/person.jpg",
       altText: "image description 2",
-      caption: "Stay updated with our latest features."
+      caption: "You can be anywhere in the world"
     },
     {
-      imageSrc: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png",
+      imageSrc: "/assets/images/applicant.jpg",
       altText: "image description 3",
-      caption: "Join our community for more updates."
+      caption: "While students get closer to their dreams"
     }
   ];
 
