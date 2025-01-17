@@ -74,12 +74,15 @@ Your scholarship helps a child attend school and support their families at the s
         ))}
       </div>
       {visibleCards < leaderboard.length && (
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center items-center flex-col  mt-6">
           <button
             onClick={showMoreCards}
-            className="px-4 py-2 bg-lightGreen text-white font-medium rounded-lg"
+            className="px-4 py-2 text-lightGreen  font-medium rounded-lg"
           >
             See More
+          </button>
+          <button className="flex lg:hidden px-4 py-2 bg-lightGreen w-48 justify-center text-white font-medium rounded-lg ml-4">
+          Join Community
           </button>
         </div>
       )}
