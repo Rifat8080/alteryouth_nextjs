@@ -23,7 +23,7 @@ const SchoolEligibility = () => {
       title: "Single Mother",
       description: "Student's father is deceased or has abandoned the family",
       svg: (
-       < SvgSingleMother />
+       <SvgSingleMother />
       ),
     },
   ];
@@ -45,7 +45,7 @@ const SchoolEligibility = () => {
             className="flex items-center bg-white p-6 shadow-md rounded-lg"
           >
             {/* SVG Icon */}
-            <div className="flex-shrink-0 w-12 h-12 mr-4">
+            <div className="flex-shrink-0 w-12 h-12 mr-4 flex items-center justify-center">
               {card.svg}
             </div>
 
