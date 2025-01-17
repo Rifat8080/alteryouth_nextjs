@@ -27,7 +27,7 @@ const HeroSection = () => {
     <section className=" relative w-full h-screen bg-cover bg-center">
       <ToastContainer />
       <div className="absolute inset-0 bg-black opacity-65">
-        <img src="assets/images/hero_pc.jpg" alt="Hero" className="w-full h-[90%] object-cover" />
+        <img src="assets/images/hero_pc.jpg" alt="Hero" className="w-full h-full object-cover" />
       </div>
       <div className="relative z-10 flex items-center justify-center h-full text-white px-8">
         <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-8">
