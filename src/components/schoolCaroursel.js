@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import schoolsData from '../../public/assets/data/schools.json';
 
 const SchoolCarousel = ({ images }) => {
@@ -73,7 +75,10 @@ const SchoolCarousel = ({ images }) => {
                     />
                     <div className="p-4">
                       <h3 className="text-xl text-black font-semibold">{schoolsData[imgIndex].name}</h3>
-                      <p className="text-black">{schoolsData[imgIndex].location}</p>
+                      <p className="text-black">
+                        <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-lightGreen" />
+                        {schoolsData[imgIndex].location}
+                      </p>
                     </div>
                   </div>
                 ))}
