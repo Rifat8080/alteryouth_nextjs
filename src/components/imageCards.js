@@ -50,8 +50,8 @@ const ImageCards = () => {
   ];
 
   return (
-    <div className="bg-white py-7">
-      <div className="flex space-x-11 justify-center items-center">
+    <div className="bg-white py-7 flex justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {cardsData.map((card, index) => (
           <ImageCard
             key={index}
