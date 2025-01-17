@@ -64,7 +64,7 @@ const HeroSection = () => {
           <img src="assets/images/hero_pc.jpg" alt="Hero Desktop" className="w-full  object-cover" />
         </div>
       </div>
-      <div className="relative z-10 flex items-center justify-center h-full text-white px-8 pt-[350px] md:pt-[650px] lg:pt-[110px] xl:pt-[170px] 2xl:pt-[220px] 3xl:pt-[220px]">
+      <div className="relative z-10 flex items-center justify-center h-full text-white px-8 pt-[350px] md:pt-[650px] lg:pt-[110px] xl:pt-[170px] 2xl:pt-[220px] 3xl:pt-[220px] 4xl:pt-[280px] 5xl:pt-[480px]">
         <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col space-y-4 text-left max-w-sm md:max-w-lg lg:max-w-sm">
             <h1 className="text-4xl md:text-6xl font-bold">Start your scholarship</h1>

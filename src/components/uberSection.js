@@ -1,6 +1,6 @@
 const UberSection = () => {
   return (
-    <section className="bg-uberColor py-12 px-4 lg:px-8 mt-[-300px] lg:mt-[10px] xl:mt-[80px] 1.5xl:mt-[162px] 3xl:mt-[196px]">
+    <section className="bg-uberColor py-12 px-4 lg:px-8 mt-[-300px] lg:mt-[10px] xl:mt-[80px] 1.5xl:mt-[162px] 3xl:mt-[196px] 4xl:mt-[290px] 5xl:mt-[420px]">
       <div className="max-w-6xl mx-auto text-center pt-[400px] md:pt-[350px] lg:pt-0">
         <div className="flex flex-col justify-center items-center">
           <h2 className="text-3xl md:text-4xl font-bold text-black">The Uber for Scholarships</h2>
