@@ -68,29 +68,32 @@ const SchoolCarousel = ({ images }) => {
       <div id="school-carousel" className="relative w-full bg-white p-4 md:p-0" data-carousel="school-carousel">
         {/* Carousel wrapper */}
         <div className="relative h-56 overflow-hidden rounded-lg md:h-full">
-          {groupedImages.map((group, index) => (
+          {groupedImages.map((group, groupIndex) => (
             <div
-              key={index}
-              className={`duration-200 ease-linear ${index === 0 ? "block" : "hidden"}`}
+              key={groupIndex}
+              className={`duration-200 ease-linear ${groupIndex === 0 ? "block" : "hidden"}`}
               data-carousel-item
             >
               <div className="flex justify-center">
-                {group.map((image, imgIndex) => (
-                  <div key={imgIndex} className={`${isMobile ? "w-full" : "w-1/3"} h-auto object-contain p-2`}>
-                    <img
-                      src={image}
-                      alt={`Image ${imgIndex + 1}`}
-                      className="w-full h-auto object-contain rounded-lg"
-                    />
-                    <div className="p-4">
-                      <h3 className="text-xl text-black font-semibold">{schoolsData[imgIndex]?.name}</h3>
-                      <p className="text-black">
-                        <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-lightGreen" />
-                        {schoolsData[imgIndex]?.location}
-                      </p>
+                {group.map((image, imgIndex) => {
+                  const absoluteIndex = groupIndex * groupSize + imgIndex;
+                  return (
+                    <div key={imgIndex} className={`${isMobile ? "w-full" : "w-1/3"} h-auto object-contain p-2`}>
+                      <img
+                        src={image}
+                        alt={`Image ${absoluteIndex + 1}`}
+                        className="w-full h-auto object-contain rounded-lg"
+                      />
+                      <div className="p-4">
+                        <h3 className="text-xl text-black font-semibold">{schoolsData[absoluteIndex]?.name}</h3>
+                        <p className="text-black">
+                          <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-lightGreen" />
+                          {schoolsData[absoluteIndex]?.location}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ))}
