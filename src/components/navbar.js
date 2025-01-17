@@ -97,7 +97,7 @@ const NavLink = ({ href, label, context, isActive, onClick, icon }) => {
 
   const sidebarStyle = `block py-2 px-3 mt-5 rounded font-medium text-base ${
     isActive
-      ? "text-lightGreen bg-lightGreen bg-opacity-25"
+      ? "text-lightGreen bg-lightGreen bg-opacity-15"
       : "text-gray-500 hover:text-lightGreen"
   }`;
 
