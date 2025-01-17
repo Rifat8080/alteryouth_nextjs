@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes,faHome, faInfoCircle, faGraduationCap, faHandshake, faFileAlt, faEnvelope, faMobileAlt, faSignInAlt  } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes, faHome, faInfoCircle, faGraduationCap, faHandshake, faFileAlt, faEnvelope, faMobileAlt, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,10 +39,10 @@ const Navbar = () => {
       >
         <div className="w-full max-w-6xl flex items-center justify-between mx-auto py-4 px-4">
           {/* Left Section: Sidebar Button */}
-          <div className="flex items-center space-x-4 ">
+          <div className="flex items-center space-x-4">
             <button
               onClick={toggleSidebar}
-              className="p-2 text-lightGreen lg:text-white"
+              className={`p-2 ${isScrolled ? "text-lightGreen" : "text-lightGreen lg:text-white"}`}
               aria-label="Toggle Sidebar"
             >
               <FontAwesomeIcon icon={faBars} className="w-6 h-6" />
@@ -57,14 +57,14 @@ const Navbar = () => {
                 alt="Flowbite Logo"
                 className="h-8"
               />
-              <span className="text-2xl font-semibold text-lightGreen lg:text-white">
+              <span className={`text-2xl font-semibold ${isScrolled ? "text-lightGreen" : "text-lightGreen lg:text-white"}`}>
                 Flowbite
               </span>
             </a>
           </div>
 
           {/* Right Section: Navigation Links (Hidden on Mobile) */}
-          <div className="hidden lg:flex space-x-2 text-white">
+          <div className={`hidden lg:flex space-x-2 ${isScrolled ? "text-lightGreen" : "text-lightGreen lg:text-white"}`}>
             <NavLink href="/about" label="About" context="navbar" isActive={activeLink === "About"} onClick={() => setActiveLink("About")} />
             <NavLink href="#" label="How it works" context="navbar" isActive={activeLink === "How it works"} onClick={() => setActiveLink("How it works")} />
             <NavLink href="#" label="Scholarships" context="navbar" isActive={activeLink === "Scholarships"} onClick={() => setActiveLink("Scholarships")} />
@@ -91,8 +91,8 @@ const Navbar = () => {
 const NavLink = ({ href, label, context, isActive, onClick, icon }) => {
   const navbarStyle = `relative block py-2 px-3 rounded ${
     isActive
-      ? "text-white font-bold text-base"
-      : "text-white font-bold text-base"
+      ? " font-bold text-base"
+      : " font-bold text-base"
   } group`;
 
   const sidebarStyle = `block py-2 px-3 mt-5 rounded font-medium text-base ${
@@ -103,7 +103,7 @@ const NavLink = ({ href, label, context, isActive, onClick, icon }) => {
 
   return (
     <a href={href} className={context === "navbar" ? navbarStyle : sidebarStyle} onClick={onClick}>
-       <FontAwesomeIcon icon={icon} className="mr-2" />
+      <FontAwesomeIcon icon={icon} className="mr-2" />
       {label}
       <span className="inline-block absolute left-0 bottom-0 w-full h-0.5 bg-lightGreen scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
     </a>
@@ -113,10 +113,10 @@ const NavLink = ({ href, label, context, isActive, onClick, icon }) => {
 const Sidebar = ({ isOpen, onClose, activeLink, setActiveLink }) => {
   return (
     <div
-    className={`fixed top-0 left-0 h-full bg-white shadow-lg transition-transform transform ${
-      isOpen ? "translate-x-0" : "-translate-x-full"
-    } w-64 max-w-xs z-50 duration-300 ease-in-out`}
-  >
+      className={`fixed top-0 left-0 h-full bg-white shadow-lg transition-transform transform ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      } w-64 max-w-xs z-50 duration-300 ease-in-out`}
+    >
       <div className="flex justify-between items-center p-4">
         <button
           onClick={onClose}

@@ -15,7 +15,7 @@ const UberSection = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
         <div className="bg-white p-6 rounded-lg shadow-lg">
-          <img src="path/to/image1.jpg" alt="Image 1" className="w-full h-48 object-cover rounded-t-lg" />
+          <img src="/assets/images/app_scholarship.jgp" alt="Image 1" className="w-full h-48 object-cover rounded-t-lg" />
           <h3 className="text-xl font-semibold mt-4">Heading 1</h3>
           <p className="text-gray-700 mt-2">Description for the first image box. This is a brief description.</p>
         </div>
