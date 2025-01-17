@@ -167,6 +167,10 @@ const Carousel = ({ images }) => {
         </div>
       )}
     </div>
+    <p className="flex lg:hidden bg-white text-sm lg:text-base max-w-8xl p-4 text-left text-black font-medium ">
+  Every scholarship begins with shipping a mobile phone to the parent of the student. Then they create their own mobile bank account
+  using that phone, to start receiving their child's scholarships directly, every month.
+  </p>
     </>
   );
 };
