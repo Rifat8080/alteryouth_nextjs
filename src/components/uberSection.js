@@ -5,12 +5,12 @@ const UberSection = () => {
   return (
     <section className="bg-uberColor py-12 px-4 lg:px-8 mt-[-300px] lg:mt-0">
         
-      <div className="max-w-6xl mx-auto text-center pt-[700px]">
-        <h2 className="text-3xl md:text-4xl font-bold text-white">Uber Section Heading</h2>
-        <p className="text-lg md:text-xl text-white mt-4">This is a subtitle for the Uber section.</p>
+      <div className="max-w-6xl mx-auto text-center pt-[400px] md:pt-[750px] lg:pt-0">
+        <h2 className="text-3xl md:text-4xl font-bold text-black">Uber Section Heading</h2>
+        <p className="text-lg md:text-xl text-black mt-4">This is a subtitle for the Uber section.</p>
         <div className="flex justify-center space-x-8 mt-8">
-          <FontAwesomeIcon icon={faHome} className="text-white w-12 h-12" />
-          <FontAwesomeIcon icon={faHome} className="text-white w-12 h-12" />
+          <FontAwesomeIcon icon={faHome} className="text-black w-12 h-12" />
+          <FontAwesomeIcon icon={faHome} className="text-black w-12 h-12" />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
