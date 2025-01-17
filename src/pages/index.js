@@ -6,6 +6,7 @@ import { getImages } from "@/lib/getImages";
 import { getScImages } from "@/lib/getScImages";
 import Carousel from "@/components/communityImpact";
 import SchoolCarousel from "@/components/schoolCaroursel";
+import SchoolEligibility from "@/components/schoolEligibility";
 
 export async function getStaticProps() {
   const images = getImages();
@@ -27,6 +28,7 @@ const HomePage = ({ images, scImages }) => {
       <ScholarshipCommunity />
       <Carousel images={images} />
       <SchoolCarousel images={scImages} />
+      <SchoolEligibility />
     </>
   );
 };
