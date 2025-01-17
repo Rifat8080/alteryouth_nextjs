@@ -1,6 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons'; 
-
 const UberSection = () => {
   return (
     <section className="bg-uberColor py-12 px-4 lg:px-8 mt-[-300px] lg:mt-0">
