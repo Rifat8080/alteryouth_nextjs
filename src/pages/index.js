@@ -3,18 +3,22 @@ import Navbar from "../components/navbar";
 import UberSection from "../components/uberSection";
 import ScholarshipCommunity from "@/components/scholarshipCommunity";
 import { getImages } from "@/lib/getImages";
+import { getScImages } from "@/lib/getScImages";
 import Carousel from "@/components/communityImpact";
+import SchoolCarousel from "@/components/schoolCaroursel";
 
 export async function getStaticProps() {
   const images = getImages();
+  const scImages = getScImages();
   return {
     props: {
       images,
+      scImages,
     },
   };
 }
 
-const HomePage = ({ images }) => {
+const HomePage = ({ images, scImages }) => {
   return (
     <>
       <Navbar />
@@ -22,6 +26,7 @@ const HomePage = ({ images }) => {
       <UberSection />
       <ScholarshipCommunity />
       <Carousel images={images} />
+      <SchoolCarousel images={scImages} />
     </>
   );
 };
