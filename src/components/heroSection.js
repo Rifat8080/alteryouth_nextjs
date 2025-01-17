@@ -54,14 +54,14 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="w-full h-screen bg-cover bg-center relative">
+    <section className="w-full h-screen ">
       <ToastContainer />
       <div className="absolute inset-0 opacity-96">
         <div className="block lg:hidden">
           <img src="assets/images/hero_home_phone.jpg" alt="Hero Mobile" className="w-full h-full object-cover relative" />
         </div>
         <div className="hidden lg:block">
-          <img src="assets/images/hero_pc.jpg" alt="Hero Desktop" className="w-full h-full object-cover relative" />
+          <img src="assets/images/hero_pc.jpg" alt="Hero Desktop" className="w-full h-full object-cover " />
         </div>
       </div>
       <div className="relative z-10 flex items-center justify-center h-full text-white px-8 pt-[350px] md:pt-[950px] lg:pt-0">
