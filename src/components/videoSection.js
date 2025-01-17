@@ -20,7 +20,7 @@ const VideoSection = () => {
 
   return (
     <section className="py-10 bg-white flex justify-center">
-      <div className="max-w-screen-2xl grid grid-cols-1 lg:grid-cols-2 items-center justify-center gap-4 px-16">
+      <div className="max-w-screen-2xl  grid grid-cols-1 lg:grid-cols-2 items-center justify-center gap-4 px-16">
         {/* Video Thumbnail */}
         <div className="w-full flex justify-center relative">
           <div className="relative w-full lg:w-3/4">
