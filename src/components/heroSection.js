@@ -6,6 +6,7 @@ const HeroSection = () => {
   const [count, setCount] = useState(0);
   const [countryCodes, setCountryCodes] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   useEffect(() => {
     fetch('/assets/data/code.json')
@@ -67,7 +68,7 @@ const HeroSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col space-y-4 text-left max-w-sm">
             <h1 className="text-4xl md:text-6xl font-bold">Start your scholarship</h1>
-            <p className="text-lg md:text-2xl font-light">Directly for students in Government Primary Schools throughout Bangladesh</p>
+            <p className="text-lg md:text-2xl font-medium">Directly for students in Government Primary Schools throughout Bangladesh</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
             <form className="flex flex-col flex-start space-y-4">
@@ -84,25 +85,27 @@ const HeroSection = () => {
                 placeholder="Your Email"
                 className="px-4 py-2 border rounded-lg w-full text-black placeholder:text-sm md:placeholder:text-base focus:border-lightGreen focus:ring-lightGreen"
               />
-              <div className="flex w-full space-x-2">
-                <select
-                  className="px-4 py-2 border rounded-lg text-black focus:border-lightGreen focus:ring-lightGreen"
-                  value={selectedCountry}
-                  onChange={(e) => setSelectedCountry(e.target.value)}
-                >
-                  {countryCodes.map((country, index) => (
-                    <option key={index} value={country.dial_code}>
-                      {country.flag} {country.dial_code}
-                    </option>
-                  ))}
-                </select>
-                <input
-                  type="tel"
-                  placeholder="Your Phone Number"
-                  className="px-4 py-2 border rounded-lg w-full text-black placeholder:text-sm md:placeholder:text-base focus:border-lightGreen focus:ring-lightGreen"
-                  pattern="[0-9]*"
-                />
-              </div>
+                <div className="flex items-center border rounded-lg w-full focus-within:border-lightGreen focus-within:ring-lightGreen">
+                  <select
+                    className="px-2 py-2  bg-transparent border-none text-black focus:outline-none"
+                    value={selectedCountry}
+                    onChange={(e) => setSelectedCountry(e.target.value)}
+                  >
+                    {countryCodes.map((country, index) => (
+                      <option key={index} value={country.dial_code}>
+                        {country.flag} {country.dial_code}
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    type="tel"
+                    placeholder="Your Number"
+                    className="px-0 md:px-4 py-2 border-none rounded-r-lg w-full text-black placeholder:text-sm md:placeholder:text-base focus-within:border-lightGreen focus-within:ring-lightGreen"
+                    pattern="[0-9]*"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                  />
+                </div>
               <span className="text-gray-700 font-medium">Number of Scholarships</span>
               <div className="flex flex-row items-center justify-between space-x-4">
                 <div className="flex items-center space-x-4">
