@@ -1,3 +1,5 @@
+import { counter } from '@fortawesome/fontawesome-svg-core';
+
 /** @type {import('tailwindcss').Config} */
 const flowbite = require("flowbite-react/tailwind");
 export default {
@@ -13,6 +15,7 @@ export default {
       },
       colors: {
         lightGreen: "#37C467",
+        counterColor: "#F3F4F6",
         sidebarColor: "#DCFCE6",
         uberColor: "#FCFCFC",
       },

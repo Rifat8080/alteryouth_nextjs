@@ -117,7 +117,7 @@ const HeroSection = () => {
                   >
                     -
                   </button>
-                  <span style={{ color: "#37C467" }}>{count}</span>
+                  <span className="bg-counterColor text-black rounded-lg px-4 py-2">{count}</span>
                   <button
                     type="button"
                     onClick={increment}
