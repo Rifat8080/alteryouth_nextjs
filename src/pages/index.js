@@ -9,6 +9,7 @@ import SchoolCarousel from "@/components/schoolCaroursel";
 import SchoolEligibility from "@/components/schoolEligibility";
 import ImageCards from "@/components/imageCards";
 import VideoSection from "@/components/videoSection";
+import IconSection from "@/components/iconSection";
 
 export async function getStaticProps() {
   const images = getImages();
@@ -33,6 +34,7 @@ const HomePage = ({ images, scImages }) => {
       <SchoolEligibility />
       <ImageCards />
       <VideoSection />
+      <IconSection />
     </>
   );
 };
