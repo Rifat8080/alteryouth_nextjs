@@ -31,7 +31,7 @@ const Carousel = ({ images }) => {
   return (
     <div id="animation-carousel" className="relative w-full" data-carousel="static">
       {/* Carousel wrapper */}
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <div className="relative h-56 overflow-hidden rounded-lg md:h-full">
         {/* Slider Items */}
         {groupedImages.map((group, index) => (
           <div
@@ -39,13 +39,13 @@ const Carousel = ({ images }) => {
             className={`duration-200 ease-linear ${index === 0 ? 'block' : 'hidden'}`}
             data-carousel-item
           >
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center ">
               {group.map((image, imgIndex) => (
                 <img
                   key={imgIndex}
                   src={image}
                   alt={`Image ${imgIndex + 1}`}
-                  className="w-1/3 h-auto object-contain rounded-lg"
+                  className="w-1/3 h-auto object-contain"
                 />
               ))}
             </div>
