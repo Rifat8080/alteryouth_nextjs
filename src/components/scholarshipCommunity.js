@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 const ScholarshipCommunity = () => {
   const [leaderboard, setLeaderboard] = useState([]);
   const [expandedCard, setExpandedCard] = useState(null);
+  const [visibleCards, setVisibleCards] = useState(6);
 
   useEffect(() => {
     fetch('/assets/data/leaderboard.json')
@@ -15,10 +16,14 @@ const ScholarshipCommunity = () => {
     setExpandedCard(expandedCard === index ? null : index);
   };
 
+  const showMoreCards = () => {
+    setVisibleCards(prevVisibleCards => prevVisibleCards + 6);
+  };
+
   return (
     <div className="bg-white">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1300px] mx-auto p-4">
-        {leaderboard.map((item, index) => (
+        {leaderboard.slice(0, visibleCards).map((item, index) => (
           <div key={index} className="bg-white p-4 rounded-lg shadow">
             <div className="flex justify-between items-center">
               <div>
@@ -31,7 +36,7 @@ const ScholarshipCommunity = () => {
                 <span className="text-white bg-lightGreen rounded-full px-2 py-1 text-xs font-medium">{item.count} Scholarship{item.count > 1 ? 's' : ''}</span>
               </div>
               <div>
-                <p className="text-xs text-black">{new Date(item.started_at).toLocaleDateString()}</p>
+                <p className="text-xs text-black font-light">Joined {new Date(item.started_at).toLocaleDateString()}</p>
               </div>
             </div>
             <div className="flex flex-col mt-4 gap-3">
@@ -58,6 +63,16 @@ const ScholarshipCommunity = () => {
           </div>
         ))}
       </div>
+      {visibleCards < leaderboard.length && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={showMoreCards}
+            className="px-4 py-2 bg-lightGreen text-white font-medium rounded-lg"
+          >
+            See More
+          </button>
+        </div>
+      )}
     </div>
   );
 };
