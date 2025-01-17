@@ -46,7 +46,7 @@ Your scholarship helps a child attend school and support their families at the s
                 <span className="text-white bg-lightGreen rounded-full px-2 py-1 text-xs font-medium">{item.count} Scholarship{item.count > 1 ? 's' : ''}</span>
               </div>
               <div>
-                <p className="text-xs text-black font-light">Joined {new Date(item.started_at).toLocaleDateString()}</p>
+                <p className="text-xs text-black font-light"><span className="hidden md:flex">Joined</span> {new Date(item.started_at).toLocaleDateString()}</p>
               </div>
             </div>
             <div className="flex flex-col mt-4 gap-3">

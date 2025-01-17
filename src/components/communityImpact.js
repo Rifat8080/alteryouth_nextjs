@@ -48,7 +48,15 @@ const Carousel = ({ images }) => {
   const indicators = Array.from({ length: indicatorSetSize }, (_, i) => currentIndicatorSet * indicatorSetSize + i);
 
   return (
-    <div id="animation-carousel" className="relative w-full bg-white p-4" data-carousel="static">
+    <>
+    <div className="flex flex-col pl-6 lg:pl-80 bg-white py-7">
+  <h2 className="text-3xl md:text-4xl font-bold text-left text-black">Community Impact</h2>
+  <p className="hidden lg:flex text-sm lg:text-base max-w-4xl text-left text-black font-medium mt-2">
+  Every scholarship begins with shipping a mobile phone to the parent of the student. Then they create their own mobile bank account
+  using that phone, to start receiving their child's scholarships directly, every month.
+  </p>
+  </div>
+    <div id="animation-carousel" className="relative w-full bg-white p-4 md:p-0" data-carousel="static">
       {/* Carousel wrapper */}
       <div className="relative h-56 overflow-hidden rounded-lg md:h-full">
         {/* Slider Items */}
@@ -159,6 +167,7 @@ const Carousel = ({ images }) => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
