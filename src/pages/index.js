@@ -1,5 +1,4 @@
 import HeroSection from "../components/heroSection";
-import Navbar from "../components/navbar";
 import UberSection from "../components/uberSection";
 import ScholarshipCommunity from "@/components/scholarshipCommunity";
 import { getImages } from "@/lib/getImages";
@@ -25,7 +24,6 @@ export async function getStaticProps() {
 const HomePage = ({ images, scImages }) => {
   return (
     <>
-      <Navbar />
       <HeroSection />
       <UberSection />
       <ScholarshipCommunity />
