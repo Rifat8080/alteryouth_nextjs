@@ -13,7 +13,6 @@ export default {
       },
       colors: {
         lightGreen: "#37C467",
-        darkGreen: "#2D7A4B",
         sidebarColor: "#DCFCE6",
         uberColor: "#FCFCFC",
       },
