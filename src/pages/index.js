@@ -1,5 +1,6 @@
 import HeroSection from "../components/heroSection";
 import Navbar from "../components/navbar";
+import UberSection from "../components/uberSection";
 
 
 const HomePage = () => {
@@ -7,6 +8,7 @@ const HomePage = () => {
     <>
       <Navbar />
       <HeroSection />
+      <UberSection />
     </>
   );
 };
