@@ -64,13 +64,13 @@ const HeroSection = () => {
           <img src="assets/images/hero_pc.jpg" alt="Hero Desktop" className="w-full  object-cover" />
         </div>
       </div>
-      <div className="relative z-10 flex items-center justify-center h-full text-white px-8 pt-[350px] md:pt-[950px] lg:pt-[110px] xl:pt-[320px] 2xl:pt-[520px]">
+      <div className="relative z-10 flex items-center justify-center h-full text-white px-8 pt-[350px] md:pt-[650px] lg:pt-[110px] xl:pt-[320px] 2xl:pt-[520px]">
         <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-8">
-          <div className="flex flex-col space-y-4 text-left max-w-sm">
+          <div className="flex flex-col space-y-4 text-left max-w-sm md:max-w-lg lg:max-w-sm">
             <h1 className="text-4xl md:text-6xl font-bold">Start your scholarship</h1>
             <p className="text-lg md:text-2xl font-medium">Directly for students in Government Primary Schools throughout Bangladesh</p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm md:max-w-xl lg:max-w-sm w-full">
             <form className="flex flex-col flex-start space-y-4">
               <h2 className="text-xl font-semibold text-left" style={{ color: "#21252A" }}>
                 Join the <span className='text-lightGreen'>#alteryouthrevolution</span>
