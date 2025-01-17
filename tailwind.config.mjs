@@ -19,7 +19,12 @@ export default {
       },
       backgroundImage: {
         'hero-pattern': "url('/images/1.jpg')",
-
+      },
+      screens: {
+        '1.5xl': '1440px',
+        '3xl': '1600px',
+        '4xl': '1920px',
+        '5xl': '2560px',
       },
     },
   },
