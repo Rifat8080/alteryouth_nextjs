@@ -32,8 +32,8 @@ const HeroSection = () => {
       <div className="relative z-10 flex items-center justify-center h-full text-white px-8">
         <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col space-y-4 text-left max-w-sm ">
-            <h1 style={{ fontSize: "4rem", fontWeight: "bold" }}>Start your scholarship</h1>
-            <p style={{ fontSize: "1rem", fontWeight: "lighter" }}>Directly for students in Government Primary Schools throughout Bangladesh</p>
+          <h1 className="text-4xl md:text-6xl font-bold">Start your scholarship</h1>
+            <p className="text-lg md:text-2xl font-light">Directly for students in Government Primary Schools throughout Bangladesh</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
             <form className="flex flex-col flex-start space-y-4">
@@ -69,8 +69,8 @@ const HeroSection = () => {
                   style={{ color: "black" }}
                 />
               </div>
-              <div className="flex flex-col items-center space-y-2">
                 <span className="text-gray-700 font-medium">Number of Scholarships</span>
+              <div className="flex flex-row items-center justify-between">
                 <div className="flex items-center space-x-4">
                   <button
                     type="button"
@@ -89,12 +89,15 @@ const HeroSection = () => {
                   >
                     +
                   </button>
-                  <span style={{ fontSize: "2rem", color: "black" }}>
+                  </div>
+                  <div>
+                  <span className="text-2xl md:text-3xl text-black">
                     BDT {getPrice()}
-                    <span style={{ fontSize: "16px", color: "black" }}>/month</span>
-                  </span>                </div>
+                    <span className="text-sm md:text-base text-black">/month</span>
+                  </span>
+                  </div>          
               </div>
-              <button type="submit" style={{ backgroundColor: "#37C467" }} className="px-4 py-2 rounded-lg w-full text-white font-medium">
+              <button type="submit" className="px-4 py-2 rounded-lg w-full text-white font-medium bg-lightGreen">
                 START NOW
               </button>
             </form>
