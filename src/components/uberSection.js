@@ -4,7 +4,7 @@ const UberSection = () => {
       <div className="max-w-6xl mx-auto text-center pt-[400px] md:pt-[350px] lg:pt-0">
         <div className="flex flex-col justify-center items-center">
           <h2 className="text-3xl md:text-4xl font-bold text-black">The Uber for Scholarships</h2>
-          <p className="text-sm lg:text-base max-w-lg text-black font-medium mt-2">
+          <p className="text-sm lg:text-base max-w-lg text-black font-normal mt-2">
             A platform connecting the world with financially struggling students
             in Government Primary Schools of Bangladesh
           </p>

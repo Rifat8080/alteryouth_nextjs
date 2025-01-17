@@ -21,7 +21,17 @@ const ScholarshipCommunity = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white p-10">
+           <div className="flex flex-col justify-center items-center">
+           
+           <h2 className="text-3xl md:text-4xl font-bold text-center text-lightGreen">#alteryouthrevolution</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-black">The Scholarship Community</h2>
+          <p className="text-sm lg:text-base max-w-xl text-center text-black font-normal mt-2">
+          Despite public primary schools being free of cost in Bangladesh,
+many students still <span className="font-bold">drop out of school</span> to work and earn in order to support their families.
+Your scholarship helps a child attend school and support their families at the same time.
+          </p>
+        </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1300px] mx-auto p-4">
         {leaderboard.slice(0, visibleCards).map((item, index) => (
           <div key={index} className="bg-white p-4 rounded-lg shadow">
