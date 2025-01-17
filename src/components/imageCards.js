@@ -31,7 +31,8 @@ const ImageCards = () => {
   ];
 
   return (
-    <div className="flex space-x-4">
+    <div className="bg-white">
+    <div className="flex space-x-4 items-center justify-center">
       {cardsData.map((card, index) => (
         <ImageCard
           key={index}
@@ -40,6 +41,7 @@ const ImageCards = () => {
           caption={card.caption}
         />
       ))}
+    </div>
     </div>
   );
 };
