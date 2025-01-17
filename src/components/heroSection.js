@@ -57,15 +57,15 @@ const HeroSection = () => {
     <section className="w-full h-screen">
       <ToastContainer />
       <div className="absolute inset-0 opacity-96">
-        <div className="block md:hidden">
+        <div className="block lg:hidden">
           <img src="assets/images/hero_home_phone.jpg" alt="Hero Mobile" className="w-full h-[90%] object-cover relative" />
         </div>
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <img src="assets/images/hero_pc.jpg" alt="Hero Desktop" className="w-full h-[90%] object-cover relative" />
         </div>
       </div>
-      <div className="relative z-10 flex items-center justify-center h-full text-white px-8 pt-[100%] md:pt-0">
-        <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-8">
+      <div className="relative z-10 flex items-center justify-center h-full text-white px-8 pt-[350px] md:pt-[950px] lg:pt-0">
+        <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col space-y-4 text-left max-w-sm">
             <h1 className="text-4xl md:text-6xl font-bold">Start your scholarship</h1>
             <p className="text-lg md:text-2xl font-medium">Directly for students in Government Primary Schools throughout Bangladesh</p>

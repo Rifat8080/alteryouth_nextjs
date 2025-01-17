@@ -3,9 +3,9 @@ import { faHome} from '@fortawesome/free-solid-svg-icons'; // Replace with actua
 
 const UberSection = () => {
   return (
-    <section className="bg-uberColor py-12 px-4 md:px-8">
+    <section className="bg-uberColor py-12 px-4 lg:px-8 mt-[-300px] lg:mt-0">
         
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-6xl mx-auto text-center pt-[700px]">
         <h2 className="text-3xl md:text-4xl font-bold text-white">Uber Section Heading</h2>
         <p className="text-lg md:text-xl text-white mt-4">This is a subtitle for the Uber section.</p>
         <div className="flex justify-center space-x-8 mt-8">
