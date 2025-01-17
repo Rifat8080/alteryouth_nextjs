@@ -65,7 +65,7 @@ const Navbar = () => {
 
           {/* Right Section: Navigation Links (Hidden on Mobile) */}
           <div className="hidden md:flex space-x-2 text-white">
-            <NavLink href="#" label="About" context="navbar" isActive={activeLink === "About"} onClick={() => setActiveLink("About")} />
+            <NavLink href="/about" label="About" context="navbar" isActive={activeLink === "About"} onClick={() => setActiveLink("About")} />
             <NavLink href="#" label="How it works" context="navbar" isActive={activeLink === "How it works"} onClick={() => setActiveLink("How it works")} />
             <NavLink href="#" label="Scholarships" context="navbar" isActive={activeLink === "Scholarships"} onClick={() => setActiveLink("Scholarships")} />
             <NavLink href="#" label="Collaborate" context="navbar" isActive={activeLink === "Collaborate"} onClick={() => setActiveLink("Collaborate")} />
@@ -127,7 +127,7 @@ const Sidebar = ({ isOpen, onClose, activeLink, setActiveLink }) => {
         </button>
       </div>
       <nav className="space-y-2 p-4">
-        <NavLink href="#" label="Home" context="sidebar" isActive={activeLink === "Home"} onClick={() => setActiveLink("Home")} icon={faHome} />
+        <NavLink href="/" label="Home" context="sidebar" isActive={activeLink === "Home"} onClick={() => setActiveLink("Home")} icon={faHome} />
         <NavLink href="#" label="How it works" context="sidebar" isActive={activeLink === "How it works"} onClick={() => setActiveLink("How it works")} icon={faInfoCircle} />
         <NavLink href="#" label="About" context="sidebar" isActive={activeLink === "About"} onClick={() => setActiveLink("About")} icon={faGraduationCap} />
         <NavLink href="#" label="Collaborate" context="sidebar" isActive={activeLink === "Collaborate"} onClick={() => setActiveLink("Collaborate")} icon={faHandshake} />
