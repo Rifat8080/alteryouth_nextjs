@@ -67,7 +67,7 @@ const SchoolCarousel = ({ images }) => {
       {/* Carousel */}
       <div id="school-carousel" className="relative w-full bg-white p-4 md:p-0" data-carousel="school-carousel">
         {/* Carousel wrapper */}
-        <div className="relative  overflow-hidden rounded-lg md:h-full">
+        <div className="relative overflow-hidden rounded-lg md:h-full">
           {groupedImages.map((group, groupIndex) => (
             <div
               key={groupIndex}
