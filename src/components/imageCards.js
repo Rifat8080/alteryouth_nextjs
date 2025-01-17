@@ -1,11 +1,11 @@
 import React from 'react';
 
 const ImageCard = ({ imageSrc, altText, caption }) => (
-  <figure className="relative max-w-sm transition-all duration-300 cursor-pointer transform hover:scale-105">
+  <figure className="relative w-96 transition-all duration-300 cursor-pointer transform hover:scale-105">
     <a href="#">
-      <img className="rounded-lg" src={imageSrc} alt={altText} />
+      <img className="rounded-lg h-96 w-full object-cover" src={imageSrc} alt={altText} />
     </a>
-    <figcaption className="absolute px-4 text-xl font-bold max-w-60 text-white top-6">
+    <figcaption className="absolute px-4 text-2xl font-bold max-w-60 text-white top-6">
       <p>{caption}</p>
     </figcaption>
   </figure>
@@ -32,7 +32,7 @@ const ImageCards = () => {
 
   return (
     <div className="bg-white py-7">
-      <div className="flex space-x-11  justify-center items-center">
+      <div className="flex space-x-11 justify-center items-center">
         {cardsData.map((card, index) => (
           <ImageCard
             key={index}
