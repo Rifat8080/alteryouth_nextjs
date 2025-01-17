@@ -13,7 +13,9 @@ export default {
       },
       colors: {
         lightGreen: "#37C467",
-        darkGreen: "#2D7A4B",},
+        darkGreen: "#2D7A4B",
+        sidebarColor: "#DCFCE6",
+      },
       backgroundImage: {
         'hero-pattern': "url('/images/1.jpg')",
       },
