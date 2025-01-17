@@ -22,23 +22,32 @@ const Carousel = ({ images }) => {
     return () => clearInterval(interval);
   }, []);
 
+  // Group images into sets of 3
+  const groupedImages = [];
+  for (let i = 0; i < images.length; i += 3) {
+    groupedImages.push(images.slice(i, i + 3));
+  }
+
   return (
     <div id="animation-carousel" className="relative w-full" data-carousel="static">
       {/* Carousel wrapper */}
       <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
         {/* Slider Items */}
-        {images.map((image, index) => (
+        {groupedImages.map((group, index) => (
           <div
             key={index}
             className={`duration-200 ease-linear ${index === 0 ? 'block' : 'hidden'}`}
             data-carousel-item
           >
-            <div className="flex gap-4 justify-center">
-              <img
-                src={image}
-                alt={`Image ${index + 1}`}
-                className="w-1/2 h-auto rounded-lg"
-              />
+            <div className="flex justify-center gap-4">
+              {group.map((image, imgIndex) => (
+                <img
+                  key={imgIndex}
+                  src={image}
+                  alt={`Image ${imgIndex + 1}`}
+                  className="w-1/3 h-auto object-contain rounded-lg"
+                />
+              ))}
             </div>
           </div>
         ))}
