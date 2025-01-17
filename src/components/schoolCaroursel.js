@@ -72,10 +72,8 @@ const SchoolCarousel = ({ images }) => {
                       className="w-full h-auto object-contain rounded-lg"
                     />
                     <div className="p-4">
-                      <h3 className="text-xl font-semibold">{schoolsData[imgIndex].name}</h3>
-                      <p className="text-gray-700">{schoolsData[imgIndex].location}</p>
-                      <p className="text-gray-700">{schoolsData[imgIndex].ht_name}</p>
-                      <p className="text-gray-700">{schoolsData[imgIndex].ht_quote}</p>
+                      <h3 className="text-xl text-black font-semibold">{schoolsData[imgIndex].name}</h3>
+                      <p className="text-black">{schoolsData[imgIndex].location}</p>
                     </div>
                   </div>
                 ))}
