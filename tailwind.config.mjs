@@ -24,8 +24,10 @@ export default {
       },
       screens: {
         'xsm' : '375px',  
+        'xxl': '1107px',
         '1.5xl': '1440px',
         '3xl': '1600px',
+        '3.5xl': '1710px',
         '4xl': '1920px',
         '5xl': '2560px',
       },
