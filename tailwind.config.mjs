@@ -23,6 +23,7 @@ export default {
         'hero-pattern': "url('/images/1.jpg')",
       },
       screens: {
+        'xsm' : '375px',  
         '1.5xl': '1440px',
         '3xl': '1600px',
         '4xl': '1920px',

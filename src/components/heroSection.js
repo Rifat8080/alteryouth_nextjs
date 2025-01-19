@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const HeroSection = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1); // Changed initial state from 0 to 1
   const [countryCodes, setCountryCodes] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -44,7 +44,7 @@ const HeroSection = () => {
   };
 
   const decrement = () => {
-    if (count > 0) {
+    if (count > 1) { 
       setCount(count - 1);
     }
   };
@@ -64,7 +64,7 @@ const HeroSection = () => {
           <img src="assets/images/hero_pc.jpg" alt="Hero Desktop" className="w-full  object-cover" />
         </div>
       </div>
-      <div className="relative z-10 flex items-center justify-center h-full text-white px-8 pt-[350px] md:pt-[650px] lg:pt-[110px] xl:pt-[170px] 2xl:pt-[220px] 3xl:pt-[220px] 4xl:pt-[280px] 5xl:pt-[480px]">
+      <div className="relative z-10 flex items-center justify-center h-full text-white px-8 pt-[350px] md:pt-[650px] lg:pt-[70px] xl:pt-[130px] 2xl:pt-[180px] 3xl:pt-[180px] 4xl:pt-[250px] 5xl:pt-[450px]">
         <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col space-y-4 text-left max-w-sm md:max-w-lg lg:max-w-sm">
             <h1 className="text-4xl md:text-6xl font-bold">Start your scholarship</h1>
@@ -107,13 +107,13 @@ const HeroSection = () => {
                 />
               </div>
               <span className="text-gray-700 font-medium">Number of Scholarships</span>
-              <div className="flex flex-row items-center justify-between space-x-4">
+              <div className="flex flex-row items-center justify-between space-x-4 ">
                 <div className="flex items-center space-x-4">
                   <button
                     type="button"
                     onClick={decrement}
                     className="px-4 py-2 rounded-lg"
-                    style={{ cursor: count === 0 ? 'not-allowed' : 'pointer', backgroundColor: count === 0 ? 'gray' : '#37C467' }}
+                    style={{ cursor: count === 1 ? 'not-allowed' : 'pointer', backgroundColor: count === 1 ? 'gray' : '#37C467' }} 
                   >
                     -
                   </button>
@@ -130,8 +130,9 @@ const HeroSection = () => {
                 <div>
                   <span className="text-sm md:text-3xl text-black font-bold">
                     BDT {getPrice()}
-                    <span className="text-sm md:text-base text-black font-medium">/month</span>
-                  </span>
+                    <span className="text-sm md:text-base text-black font-medium">
+                      <br className="flex xsm:hidden" />/month
+                    </span>                  </span>
                 </div>
               </div>
               <button type="submit" className="px-4 py-2 rounded-lg w-full text-white font-medium bg-lightGreen">
